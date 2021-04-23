@@ -74,4 +74,13 @@ stdenv.mkDerivation rec {
       patchelf --set-rpath "$out/lib:$lib_rpath" "$lib"
     done;
   '';
+
+  meta = with lib; {
+    description = "Digilent Adept Runtime";
+    homepage = "https://reference.digilentinc.com/reference/software/adept/start";
+    downloadPage = "https://mautic.digilentinc.com/adept-runtime-download";
+    license = licenses.unfree;
+    maintainers = [ maintainers.liff ];
+    platforms = builtins.attrNames hashes;
+  };
 }

@@ -90,4 +90,13 @@ stdenv.mkDerivation {
 
     runHook postInstall
   '';
+
+  meta = with lib; {
+    description = "Digilent Waveforms";
+    homepage = "https://store.digilentinc.com/digilent-waveforms/";
+    downloadPage = "https://mautic.digilentinc.com/waveforms-download";
+    license = licenses.unfree;
+    maintainers = [ maintainers.liff ];
+    platforms = builtins.attrNames hashes;
+  };
 }
