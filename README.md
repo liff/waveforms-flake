@@ -2,9 +2,9 @@ A Nix [flake](https://nixos.wiki/wiki/Flakes) for [Digilent Waveforms](https://s
 
 # Usage
 
-In addition to the `waveform` package, this Flake provides a NixOS
-module that installs the package and sets up the USB device permissions
-so that `plugdev` group users are allowed to access.
+In addition to the `waveforms` package and app, this Flake provides a
+NixOS module that installs the package and sets up the USB device 
+permissions so that `plugdev` group users are allowed to access.
 
 ```nix
 {
