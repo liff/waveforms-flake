@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
   inherit version;
 
   src = fetchurl {
-    url = "https://digilent.s3-us-west-2.amazonaws.com/Software/Adept2+Runtime/${version}/digilent.adept.runtime_${version}-${debianArch}.deb";
+    url = "https://files.digilent.com/Software/Adept2+Runtime/${version}/digilent.adept.runtime_${version}-${debianArch}.deb";
     hash = hashes.${arch};
   };
 

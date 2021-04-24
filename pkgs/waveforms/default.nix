@@ -34,7 +34,7 @@ stdenv.mkDerivation {
   inherit version;
 
   src = fetchurl {
-    url = "https://digilent.s3-us-west-2.amazonaws.com/Software/Waveforms2015/${version}/digilent.waveforms_${version}_${debianArch}.deb";
+    url = "https://files.digilent.com/Software/Waveforms2015/${version}/digilent.waveforms_${version}_${debianArch}.deb";
     hash = hashes.${arch};
   };
 
