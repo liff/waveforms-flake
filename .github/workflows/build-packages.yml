@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
 
+env:
+  NIXPKGS_ALLOW_UNFREE: 1
+
 jobs:
   build-packages:
     runs-on: ubuntu-latest
@@ -27,4 +30,4 @@ jobs:
             experimental-features = nix-command flakes
 
       - name: Build package ${{ matrix.pkg }}
-        run: nix -L build --override-input nixpkgs github:nixos/nixpkgs/${{ matrix.nixpkgs_branch }} .#${{ matrix.pkg }}
+        run: nix -L build --impure --override-input nixpkgs github:nixos/nixpkgs/${{ matrix.nixpkgs_branch }} .#${{ matrix.pkg }}
