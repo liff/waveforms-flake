@@ -8,18 +8,9 @@
 
 let
 
-  arch = stdenv.targetPlatform.system;
-
-  debianArch = (import ../../lib/debian-archs.nix).${arch};
-
-  version = "2.21.3";
-
-  hashes = {
-    "x86_64-linux" = "sha256-3sLjWyAilcKiHGHYgeMDDHti2bs1q49L11BW68YXw4k=";
-    "i686-linux" = "sha256-IgoS3ajfKUaygxJF2E0/dQN+qSxVo31t4ZuXpz9pe3Q=";
-    "aarch64-linux" = "sha256-lLLG3Lf1VwCvKMhpaBBc2v1k2W/kfXMEsC1GA0X2TUQ=";
-    "armv7l-linux" = "sha256-C+mwNQDw50aCmlT86sOxDMoNDTwkVjx968rdFeLYpzs=";
-  };
+  digilentPackages = import ../../data/packages.nix;
+  inherit (digilentPackages.adept2-runtime) version systems;
+  srcInfo = systems.${stdenv.targetPlatform.system};
 
 in
 
@@ -28,8 +19,7 @@ stdenv.mkDerivation rec {
   inherit version;
 
   src = fetchurl {
-    url = "https://files.digilent.com/Software/Adept2+Runtime/${version}/digilent.adept.runtime_${version}-${debianArch}.deb";
-    hash = hashes.${arch};
+    inherit (srcInfo) url hash;
   };
 
   preferLocalBuild = true;
@@ -82,6 +72,6 @@ stdenv.mkDerivation rec {
     downloadPage = "https://mautic.digilentinc.com/adept-runtime-download";
     license = licenses.unfree;
     maintainers = [ maintainers.liff ];
-    platforms = builtins.attrNames hashes;
+    platforms = builtins.attrNames systems;
   };
 }

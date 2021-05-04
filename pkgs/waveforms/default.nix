@@ -12,18 +12,9 @@
 
 let
 
-  arch = stdenv.targetPlatform.system;
-
-  debianArch = (import ../../lib/debian-archs.nix).${arch};
-
-  version = "3.16.3";
-
-  hashes = {
-    "x86_64-linux" = "sha256-/8AfE2SVDPawHUX5Q+/ozzYaWSvOodh6vFoQYoFs9ts=";
-    "aarch64-linux" = "sha256-+0hHi30wh4rZrZA3F7eVmIMBF7fnwhMZVTF4fdrYIq4=";
-    "armv7l-linux" = "sha256-CuXq47nzXsoaEIdmeh+X/7XF9wHOgrZCPTcdTdoJoIQ=";
-    "i686-linux" = "sha256-61/Lcl6wg+u9Kw0kSuSgBRgQlQJUOUEZa1kekIIexzI=";
-  };
+  digilentPackages = import ../../data/packages.nix;
+  inherit (digilentPackages.waveforms) version systems;
+  srcInfo = systems.${stdenv.targetPlatform.system};
 
   rewriteUsr = "rewrite-usr" + stdenv.targetPlatform.extensions.sharedLibrary;
 
@@ -34,8 +25,7 @@ stdenv.mkDerivation {
   inherit version;
 
   src = fetchurl {
-    url = "https://files.digilent.com/Software/Waveforms2015/${version}/digilent.waveforms_${version}_${debianArch}.deb";
-    hash = hashes.${arch};
+    inherit (srcInfo) url hash;
   };
 
   preferLocalBuild = true;
@@ -97,6 +87,6 @@ stdenv.mkDerivation {
     downloadPage = "https://mautic.digilentinc.com/waveforms-download";
     license = licenses.unfree;
     maintainers = [ maintainers.liff ];
-    platforms = builtins.attrNames hashes;
+    platforms = builtins.attrNames systems;
   };
 }
