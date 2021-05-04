@@ -1,44 +1,44 @@
 {
     "adept2-runtime": {
-	"version": "2.21.3",
-	"systems": {
-	    "x86_64-linux": {
-		"url": "https://files.digilent.com/Software/Adept2+Runtime/2.21.3/digilent.adept.runtime_2.21.3-amd64.deb",
-		"hash": "sha256-3sLjWyAilcKiHGHYgeMDDHti2bs1q49L11BW68YXw4k="
-	    },
-	    "i686-linux": {
-		"url": "https://files.digilent.com/Software/Adept2+Runtime/2.21.3/digilent.adept.runtime_2.21.3-i386.deb",
-		"hash": "sha256-IgoS3ajfKUaygxJF2E0/dQN+qSxVo31t4ZuXpz9pe3Q="
-	    },
-	    "aarch64-linux": {
-		"url": "https://files.digilent.com/Software/Adept2+Runtime/2.21.3/digilent.adept.runtime_2.21.3-arm64.deb",
-		"hash": "sha256-lLLG3Lf1VwCvKMhpaBBc2v1k2W/kfXMEsC1GA0X2TUQ="
-	    },
-	    "armv7l-linux": {
-		"url": "https://files.digilent.com/Software/Adept2+Runtime/2.21.3/digilent.adept.runtime_2.21.3-armhf.deb",
-		"hash": "sha256-C+mwNQDw50aCmlT86sOxDMoNDTwkVjx968rdFeLYpzs="
-	    }
-	}
+        "version": "2.21.3",
+        "systems": {
+            "x86_64-linux": {
+                "url": "https://files.digilent.com/Software/Adept2+Runtime/2.21.3/digilent.adept.runtime_2.21.3-amd64.deb",
+                "hash": "sha256-3sLjWyAilcKiHGHYgeMDDHti2bs1q49L11BW68YXw4k="
+            },
+            "i686-linux": {
+                "url": "https://files.digilent.com/Software/Adept2+Runtime/2.21.3/digilent.adept.runtime_2.21.3-i386.deb",
+                "hash": "sha256-IgoS3ajfKUaygxJF2E0/dQN+qSxVo31t4ZuXpz9pe3Q="
+            },
+            "aarch64-linux": {
+                "url": "https://files.digilent.com/Software/Adept2+Runtime/2.21.3/digilent.adept.runtime_2.21.3-arm64.deb",
+                "hash": "sha256-lLLG3Lf1VwCvKMhpaBBc2v1k2W/kfXMEsC1GA0X2TUQ="
+            },
+            "armv7l-linux": {
+                "url": "https://files.digilent.com/Software/Adept2+Runtime/2.21.3/digilent.adept.runtime_2.21.3-armhf.deb",
+                "hash": "sha256-C+mwNQDw50aCmlT86sOxDMoNDTwkVjx968rdFeLYpzs="
+            }
+        }
     },
     "waveforms": {
-	"version": "3.16.3",
-	"systems": {
-	    "x86_64-linux": {
-		"url": "https://files.digilent.com/Software/Waveforms2015/3.16.3/digilent.waveforms_3.16.3_amd64.deb",
-		"hash": "sha256-/8AfE2SVDPawHUX5Q+/ozzYaWSvOodh6vFoQYoFs9ts="
-	    },
-	    "i686-linux": {
-		"url": "https://files.digilent.com/Software/Waveforms2015/3.16.3/digilent.waveforms_3.16.3_i386.deb",
-		"hash": "sha256-61/Lcl6wg+u9Kw0kSuSgBRgQlQJUOUEZa1kekIIexzI="
-	    },
-	    "aarch64-linux": {
-		"url": "https://files.digilent.com/Software/Waveforms2015/3.16.3/digilent.waveforms_3.16.3_arm64.deb",
-		"hash": "sha256-+0hHi30wh4rZrZA3F7eVmIMBF7fnwhMZVTF4fdrYIq4="
-	    },
-	    "armv7l-linux": {
-		"url": "https://files.digilent.com/Software/Waveforms2015/3.16.3/digilent.waveforms_3.16.3_armhf.deb",
-		"hash": "sha256-CuXq47nzXsoaEIdmeh+X/7XF9wHOgrZCPTcdTdoJoIQ="
-	    }
-	}
+        "version": "3.16.3",
+        "systems": {
+            "x86_64-linux": {
+                "url": "https://files.digilent.com/Software/Waveforms2015/3.16.3/digilent.waveforms_3.16.3_amd64.deb",
+                "hash": "sha256-/8AfE2SVDPawHUX5Q+/ozzYaWSvOodh6vFoQYoFs9ts="
+            },
+            "i686-linux": {
+                "url": "https://files.digilent.com/Software/Waveforms2015/3.16.3/digilent.waveforms_3.16.3_i386.deb",
+                "hash": "sha256-61/Lcl6wg+u9Kw0kSuSgBRgQlQJUOUEZa1kekIIexzI="
+            },
+            "aarch64-linux": {
+                "url": "https://files.digilent.com/Software/Waveforms2015/3.16.3/digilent.waveforms_3.16.3_arm64.deb",
+                "hash": "sha256-+0hHi30wh4rZrZA3F7eVmIMBF7fnwhMZVTF4fdrYIq4="
+            },
+            "armv7l-linux": {
+                "url": "https://files.digilent.com/Software/Waveforms2015/3.16.3/digilent.waveforms_3.16.3_armhf.deb",
+                "hash": "sha256-CuXq47nzXsoaEIdmeh+X/7XF9wHOgrZCPTcdTdoJoIQ="
+            }
+        }
     }
 }
