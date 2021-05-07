@@ -40,7 +40,7 @@ stdenv.mkDerivation {
 
   preFixup = ''
     qtWrapperArgs+=(--set LD_PRELOAD $out/lib/${rewriteUsr})
-    qtWrapperArgs+=(--prefix PATH : $out/bin)
+    qtWrapperArgs+=(--prefix PATH : $out/libexec:$out/bin)
     qtWrapperArgs+=(--set DIGILENT_ADEPT_CONF ${adept2-runtime}/etc/digilent-adept.conf)
   '';
 
@@ -68,12 +68,12 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out/share
+    mkdir -p $out/share $out/libexec
     rm -r usr/share/lintian
     cp -a usr/* $out/
     mv $out/share/digilent/waveforms/doc $out/bin/
     cp -a ${rewriteUsr} $out/lib/
-    cp -a xdg-open $out/bin/
+    cp -a xdg-open $out/libexec/
     substituteInPlace $out/share/applications/digilent.waveforms.desktop \
         --replace /usr/bin $out/bin \
         --replace /usr/share $out/share
