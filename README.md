@@ -1,3 +1,5 @@
+[![Build packages](https://github.com/liff/waveforms-flake/actions/workflows/build-packages.yml/badge.svg)](https://github.com/liff/waveforms-flake/actions/workflows/build-packages.yml)
+
 A Nix [flake](https://nixos.wiki/wiki/Flakes) for [Digilent Waveforms](https://store.digilentinc.com/digilent-waveforms/).
 
 # Usage
