@@ -24,7 +24,7 @@ jobs:
         run: ./update
 
       - name: Commit changes, if any
-        uses: EndBug/add-and-commit@v7.2.1
+        uses: EndBug/add-and-commit@v7.3.0
         with:
           add: 'data'
           author_name: github-actions
