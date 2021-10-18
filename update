@@ -81,6 +81,7 @@ if __name__ == "__main__":
                 proc = subprocess.run(["nix", "--quiet", "store", "prefetch-file", "--json", url], capture_output=True)
                 proc.check_returncode()
                 result = json.loads(proc.stdout)
+                current_data[item.name]["version"] = latest_version
                 current_data[item.name]["systems"][system]["url"] = url
                 current_data[item.name]["systems"][system]["hash"] = result["hash"]
 
