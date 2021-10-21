@@ -40,6 +40,9 @@ jobs:
       - uses: nixbuild/nixbuild-action@v6
         with:
           nixbuild_ssh_key: '${{ secrets.NIXBUILD_SSH_KEY }}'
+      - name: debug
+        run: cat /etc/ssh/ssh_config
+
       - name: Build package ${{ matrix.pkg }}
         run: >-
           nix -L build
