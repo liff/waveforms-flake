@@ -41,9 +41,9 @@ jobs:
         with:
           nixbuild_ssh_key: '${{ secrets.NIXBUILD_SSH_KEY }}'
       - name: Build package ${{ matrix.pkg }}
-        run: >-
-          nix -L build
-              --impure
-              --override-input nixpkgs github:nixos/nixpkgs/${{ matrix.nixpkgs_branch }}
-              --system ${{ matrix.system }}
+        run: |-
+          nix -L build \
+              --impure \
+              --override-input nixpkgs github:nixos/nixpkgs/${{ matrix.nixpkgs_branch }} \
+              --system ${{ matrix.system }} \
               .#${{ matrix.pkg }}
