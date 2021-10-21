@@ -9,7 +9,7 @@ env:
 
 jobs:
   build-packages:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     strategy:
       matrix:
@@ -37,7 +37,7 @@ jobs:
           name: liff
           signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - uses: nixbuild/nixbuild-action@v4
+      - uses: nixbuild/nixbuild-action@v6
         with:
           nixbuild_ssh_key: '${{ secrets.NIXBUILD_SSH_KEY }}'
       - name: Build package ${{ matrix.pkg }}
