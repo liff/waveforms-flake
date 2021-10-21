@@ -23,6 +23,8 @@ jobs:
           - x86_64-linux
           - aarch64-linux
 
+    name: "Build ${{ matrix.pkg }} for ${{ matrix.nixpkgs_branch }} on ${{ matrix.system }}"
+
     steps:
       - uses: actions/checkout@v2
         with:
