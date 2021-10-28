@@ -3,6 +3,7 @@
 , fetchurl
 , autoPatchelfHook
 , libusb
+, avahi
 , dpkg
 }:
 
@@ -26,7 +27,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ dpkg autoPatchelfHook ];
 
-  buildInputs = [ stdenv.cc.cc.lib libusb ];
+  buildInputs = [ stdenv.cc.cc.lib libusb avahi ];
 
   unpackCmd = "dpkg -x $curSrc out";
 
