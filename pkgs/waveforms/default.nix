@@ -28,8 +28,6 @@ stdenv.mkDerivation {
     inherit (srcInfo) url hash;
   };
 
-  preferLocalBuild = true;
-
   nativeBuildInputs = [ dpkg autoPatchelfHook qt5.wrapQtAppsHook shared-mime-info ];
 
   buildInputs = [ adept2-runtime qt5.qtbase qt5.qtscript qt5.qtmultimedia ];

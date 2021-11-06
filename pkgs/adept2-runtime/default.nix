@@ -23,8 +23,6 @@ stdenv.mkDerivation rec {
     inherit (srcInfo) url hash;
   };
 
-  preferLocalBuild = true;
-
   nativeBuildInputs = [ dpkg autoPatchelfHook ];
 
   buildInputs = [ stdenv.cc.cc.lib libusb avahi ];

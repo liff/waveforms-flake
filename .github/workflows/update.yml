@@ -15,7 +15,6 @@ jobs:
           fetch-depth: 0
       - uses: cachix/install-nix-action@v14
         with:
-          install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.4pre20210823_af94b54/install
           nix_path: nixpkgs=channel:nixos-unstable
           extra_nix_config: |
             experimental-features = nix-command flakes
@@ -24,7 +23,7 @@ jobs:
         run: ./update
 
       - name: Commit changes, if any
-        uses: EndBug/add-and-commit@v7.4.0
+        uses: EndBug/add-and-commit@v7
         with:
           add: 'data'
           author_name: github-actions

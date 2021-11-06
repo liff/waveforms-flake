@@ -1,20 +1,57 @@
+---
 name: build-packages
 
-on:
-  push:
-    branches: [main]
+on: push
 
 env:
   NIXPKGS_ALLOW_UNFREE: 1
 
 jobs:
-  build-packages:
+  build-libraries:
     runs-on: ubuntu-20.04
 
     strategy:
       matrix:
         pkg:
           - adept2-runtime
+        nixpkgs_branch:
+          - nixos-unstable
+          - nixos-21.05
+        system:
+          - x86_64-linux
+          - aarch64-linux
+
+    name: "Build library ${{ matrix.pkg }} for ${{ matrix.nixpkgs_branch }} on ${{ matrix.system }}"
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v14
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - uses: cachix/cachix-action@v10
+        with:
+          name: liff
+          signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+      - uses: nixbuild/nixbuild-action@v8
+        with:
+          nixbuild_ssh_key: '${{ secrets.NIXBUILD_SSH_KEY }}'
+      - name: Build package ${{ matrix.pkg }}
+        run: |-
+          nix -L build \
+              --impure \
+              --override-input nixpkgs github:nixos/nixpkgs/${{ matrix.nixpkgs_branch }} \
+              --system ${{ matrix.system }} \
+              .#${{ matrix.pkg }}
+
+  build-applications:
+    runs-on: ubuntu-20.04
+    needs: build-libraries
+
+    strategy:
+      matrix:
+        pkg:
           - waveforms
         nixpkgs_branch:
           - nixos-unstable
@@ -23,15 +60,12 @@ jobs:
           - x86_64-linux
           - aarch64-linux
 
-    name: "Build ${{ matrix.pkg }} for ${{ matrix.nixpkgs_branch }} on ${{ matrix.system }}"
+    name: "Build application ${{ matrix.pkg }} for ${{ matrix.nixpkgs_branch }} on ${{ matrix.system }}"
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - uses: cachix/install-nix-action@v14
         with:
-          install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.5pre20211015_130284b/install
           extra_nix_config: |
             experimental-features = nix-command flakes
       - uses: cachix/cachix-action@v10
