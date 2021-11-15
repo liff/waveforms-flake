@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: cachix/install-nix-action@v14
+      - uses: cachix/install-nix-action@v15
         with:
           extra_nix_config: |
             experimental-features = nix-command flakes
@@ -64,7 +64,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: cachix/install-nix-action@v14
+      - uses: cachix/install-nix-action@v15
         with:
           extra_nix_config: |
             experimental-features = nix-command flakes
