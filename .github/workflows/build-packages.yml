@@ -26,9 +26,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: cachix/install-nix-action@v15
-        with:
-          extra_nix_config: |
-            experimental-features = nix-command flakes
       - uses: cachix/cachix-action@v10
         with:
           name: liff
@@ -65,9 +62,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: cachix/install-nix-action@v15
-        with:
-          extra_nix_config: |
-            experimental-features = nix-command flakes
       - uses: cachix/cachix-action@v10
         with:
           name: liff
