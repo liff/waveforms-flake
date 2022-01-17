@@ -3,9 +3,6 @@ name: build-packages
 
 on: push
 
-env:
-  NIXPKGS_ALLOW_UNFREE: 1
-
 jobs:
   build-libraries:
     runs-on: ubuntu-20.04
@@ -37,7 +34,6 @@ jobs:
       - name: Build package ${{ matrix.pkg }}
         run: |-
           nix -L build \
-              --impure \
               --override-input nixpkgs github:nixos/nixpkgs/${{ matrix.nixpkgs_branch }} \
               --system ${{ matrix.system }} \
               .#${{ matrix.pkg }}
