@@ -12,6 +12,7 @@
           inherit name;
           value = (import nixpkgs {
             inherit system;
+            config.allowUnfree = true;
             overlays = [ self.overlay ];
           })."${name}";
         };

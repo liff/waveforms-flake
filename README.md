@@ -25,3 +25,9 @@ permissions so that `plugdev` group users are allowed to access.
   };
 }
 ```
+
+# Note on unfree packages
+
+Due to limitations of flakes, this flake enables `config.allowUnfree`
+on its import of nixpkgs, meaining that packages can be built without
+otherwise enabling unfree software.
