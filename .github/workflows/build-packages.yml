@@ -13,7 +13,7 @@ jobs:
           - adept2-runtime
         nixpkgs_branch:
           - nixos-unstable
-          - nixos-21.05
+          - nixos-21.11
         system:
           - x86_64-linux
           - aarch64-linux
@@ -48,7 +48,7 @@ jobs:
           - waveforms
         nixpkgs_branch:
           - nixos-unstable
-          - nixos-21.05
+          - nixos-21.11
         system:
           - x86_64-linux
           - aarch64-linux
