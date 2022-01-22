@@ -1,6 +1,6 @@
 [![Build packages](https://github.com/liff/waveforms-flake/actions/workflows/build-packages.yml/badge.svg)](https://github.com/liff/waveforms-flake/actions/workflows/build-packages.yml)
 
-A Nix [flake](https://nixos.wiki/wiki/Flakes) for [Digilent Waveforms](https://store.digilentinc.com/digilent-waveforms/).
+A Nix [flake](https://nixos.wiki/wiki/Flakes) for [Digilent Waveforms](https://store.digilentinc.com/digilent-waveforms/) on Linux.
 
 # Usage
 
@@ -10,7 +10,7 @@ permissions so that `plugdev` group users are allowed to access.
 
 ```nix
 {
-  waveforms.url = "github:liff/waveforms-flake";
+  inputs.waveforms.url = "github:liff/waveforms-flake";
 
   outputs = { self, nixpkgs, waveforms }: {
     # replace 'joes-desktop' with your hostname here.
