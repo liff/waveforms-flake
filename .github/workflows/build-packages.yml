@@ -16,7 +16,7 @@ jobs:
           - nixos-21.11
         system:
           - x86_64-linux
-          - aarch64-linux
+          # - aarch64-linux
 
     name: "Build library ${{ matrix.pkg }} for ${{ matrix.nixpkgs_branch }} on ${{ matrix.system }}"
 
@@ -48,7 +48,7 @@ jobs:
           - nixos-21.11
         system:
           - x86_64-linux
-          - aarch64-linux
+          # - aarch64-linux
 
     name: "Build application ${{ matrix.pkg }} for ${{ matrix.nixpkgs_branch }} on ${{ matrix.system }}"
 
