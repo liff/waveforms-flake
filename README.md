@@ -1,6 +1,11 @@
 [![Build packages](https://github.com/liff/waveforms-flake/actions/workflows/build-packages.yml/badge.svg)](https://github.com/liff/waveforms-flake/actions/workflows/build-packages.yml)
 
-A Nix [flake](https://nixos.wiki/wiki/Flakes) for [Digilent Waveforms](https://store.digilentinc.com/digilent-waveforms/) on Linux.
+A Nix [flake](https://nixos.wiki/wiki/Flakes) for
+[Digilent Waveforms](https://store.digilentinc.com/digilent-waveforms/)
+on Linux.
+
+The package version is automatically updated daily. Stable releases
+of Waveforms seem to be rather infrequent, though.
 
 # Usage
 
