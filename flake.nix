@@ -21,7 +21,10 @@
 
         eachSystem = f: listToAttrs (map (system: { name = system; value = f system; }) systems);
 
-        packages = eachSystem (system: listToAttrs (map (toFlakePackage system) names));
+        packages = eachSystem (system: 
+          let all = listToAttrs (map (toFlakePackage system) names);
+          in all // { default = all.waveforms; }
+        );
 
         overlay = final: prev:
           listToAttrs (
@@ -31,19 +34,22 @@
             })
               names);
 
-        defaultPackage = eachSystem (system: packages.${system}.waveforms);
-
-        apps = eachSystem (system: {
+        apps = eachSystem (system: rec {
           waveforms = {
             type = "app";
             program = "${packages.${system}.waveforms}/bin/waveforms";
           };
+          default = waveforms;
         });
 
-        defaultApp = eachSystem (system: apps.${system}.waveforms);
+        defaultPackage = eachSystem (system: packages.${system}.default);
+
+        defaultApp = eachSystem (system: apps.${system}.default);
 
     in {
       inherit packages overlay defaultPackage apps defaultApp;
+
+      overlays.default = overlay;
 
       nixosModule = { pkgs, ... }: {
         nixpkgs.overlays = [ self.overlay ];
