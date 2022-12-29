@@ -46,15 +46,17 @@
 
         defaultApp = eachSystem (system: apps.${system}.default);
 
+        nixosModule = { pkgs, ... }: {
+          nixpkgs.overlays = [ self.overlay ];
+          services.udev.packages = [ pkgs.adept2-runtime ];
+          environment.systemPackages = [ pkgs.waveforms ];
+        };
+
     in {
-      inherit packages overlay defaultPackage apps defaultApp;
+      inherit packages overlay defaultPackage apps defaultApp nixosModule;
 
       overlays.default = overlay;
 
-      nixosModule = { pkgs, ... }: {
-        nixpkgs.overlays = [ self.overlay ];
-        services.udev.packages = [ pkgs.adept2-runtime ];
-        environment.systemPackages = [ pkgs.waveforms ];
-      };
+      nixosModules.default = nixosModule;
     };
 }
