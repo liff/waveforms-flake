@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 class Item:
     name: str
     url: str
-    pattern: re.Pattern
+    scrape: Callable[[BeatifulSoup], str]
     download_url: Callable[[str, str], str]
 
 
@@ -39,30 +39,47 @@ def waveforms_deb_download_url(system: str, version: str):
     return f"https://files.digilent.com/Software/Waveforms2015/{version}/digilent.waveforms_{version}_{DEBIAN_ARCHS[system]}.deb"
 
 
+def scrape_adept2_runtime(html):
+    runtime = html.find(string=re.compile("\s*Runtime - Latest Downloads\s*"))
+    version = (
+        runtime.find_parent(class_="section")
+        .find(string=re.compile("\s*Latest version\s*"))
+        .find_parent(class_="key-value")
+        .find(class_="value")
+        .text.strip()
+        .lstrip("v")
+    )
+    return "2.27.9" if version == "2.27.29" else version
+
+
+def scrape_waveforms(html):
+    pattern = re.compile(r"\s*Latest Downloads \(([0-9.]+)\) .*")
+    if (version_text := html.find(string=pattern)) and (
+        m := pattern.match(version_text)
+    ):
+        return m.group(1)
+
+
 CONTROL = [
     Item(
         name="adept2-runtime",
         url="https://reference.digilentinc.com/reference/software/adept/start",
-        pattern=re.compile(r"\s*All OS v([0-9.]+) Download\s*"),
+        scrape=scrape_adept2_runtime,
         download_url=adept2_deb_download_url,
     ),
     Item(
         name="waveforms",
         url="https://reference.digilentinc.com/reference/software/waveforms/waveforms-3/start",
-        pattern=re.compile(r"\s*Latest Downloads \(([0-9.]+)\) .*"),
+        scrape=scrape_waveforms,
         download_url=waveforms_deb_download_url,
     ),
 ]
 
 
-def scrape_latest_version(url, pattern):
+def fetch_html(url):
     response = requests.get(url)
     response.raise_for_status()
-    html = BeautifulSoup(response.text, "html.parser")
-    if (version_text := html.find(string=pattern)) and (m := pattern.match(version_text)):
-        return m.group(1)
-    else:
-        raise RuntimeError(f"Could not find version text from {url}")
+    return BeautifulSoup(response.text, "html.parser")
 
 
 if __name__ == "__main__":
@@ -70,15 +87,22 @@ if __name__ == "__main__":
         current_data = json.load(inp)
 
     for item in CONTROL:
-        latest_version = scrape_latest_version(item.url, item.pattern)
+        latest_version = item.scrape(fetch_html(item.url))
+        if not latest_version:
+            raise RuntimeError(f"Could not find version text from {item.url}")
 
         if current_data[item.name]["version"] == latest_version:
             print(f"{item.name} up to date at {latest_version}.")
         else:
-            print(f"Update {item.name} from {current_data[item.name]['version']} to {latest_version}")
+            print(
+                f"Update {item.name} from {current_data[item.name]['version']} to {latest_version}"
+            )
             for system in SYSTEMS:
                 url = item.download_url(system, latest_version)
-                proc = subprocess.run(["nix", "--quiet", "store", "prefetch-file", "--json", url], capture_output=True)
+                proc = subprocess.run(
+                    ["nix", "--quiet", "store", "prefetch-file", "--json", url],
+                    capture_output=True,
+                )
                 proc.check_returncode()
                 result = json.loads(proc.stdout)
                 current_data[item.name]["version"] = latest_version

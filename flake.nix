@@ -52,11 +52,27 @@
           environment.systemPackages = [ pkgs.waveforms ];
         };
 
+        devShells = eachSystem (system:
+          let pkgs = import nixpkgs { inherit system; };
+          in {
+            default = pkgs.mkShell {
+              packages = [ (pkgs.python3.withPackages (py: [
+                py.python-lsp-server
+                py.requests
+                py.beautifulsoup4
+                py.black
+              ]))];
+            };
+          }
+        );
+
     in {
       inherit packages overlay defaultPackage apps defaultApp nixosModule;
 
       overlays.default = overlay;
 
       nixosModules.default = nixosModule;
+
+      devShells = devShells;
     };
 }

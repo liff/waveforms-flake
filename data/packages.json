@@ -21,23 +21,23 @@
         }
     },
     "waveforms": {
-        "version": "3.19.5",
+        "version": "3.20.1",
         "systems": {
             "x86_64-linux": {
-                "url": "https://files.digilent.com/Software/Waveforms2015/3.19.5/digilent.waveforms_3.19.5_amd64.deb",
-                "hash": "sha256-ARziP0MBGbGi06ZJovh3UlowxgevAMgJIAOCUcyOi4k="
+                "url": "https://files.digilent.com/Software/Waveforms2015/3.20.1/digilent.waveforms_3.20.1_amd64.deb",
+                "hash": "sha256-1CKo0wCM9YdaZ0I7dFwfmSSi/UUp2SRvL6SolnF4tUI="
             },
             "i686-linux": {
-                "url": "https://files.digilent.com/Software/Waveforms2015/3.19.5/digilent.waveforms_3.19.5_i386.deb",
-                "hash": "sha256-1nLQ1t4U6RwJqK70sIH7wY3rEwjEWDBzBG77yB3qx5Q="
+                "url": "https://files.digilent.com/Software/Waveforms2015/3.20.1/digilent.waveforms_3.20.1_i386.deb",
+                "hash": "sha256-/ppOywf8iznfODSFA1IC9mcWvPgwZwWQ0SAm8fk4w0I="
             },
             "aarch64-linux": {
-                "url": "https://files.digilent.com/Software/Waveforms2015/3.19.5/digilent.waveforms_3.19.5_arm64.deb",
-                "hash": "sha256-7zhQPdpWM4NtzTxyDNOoAnRx5HqwPVIP1zmo+8WVUhE="
+                "url": "https://files.digilent.com/Software/Waveforms2015/3.20.1/digilent.waveforms_3.20.1_arm64.deb",
+                "hash": "sha256-lQzsUgQ3ullrr0CwOeVVXmgImfVn04Xa2smlgjrwADA="
             },
             "armv7l-linux": {
-                "url": "https://files.digilent.com/Software/Waveforms2015/3.19.5/digilent.waveforms_3.19.5_armhf.deb",
-                "hash": "sha256-/Xi+Y2eGxpwSom3UatYhVWDoDeRLdxPC/7tje2ZlkIo="
+                "url": "https://files.digilent.com/Software/Waveforms2015/3.20.1/digilent.waveforms_3.20.1_armhf.deb",
+                "hash": "sha256-ArAdRJUcvRSqD9fq+b0d8GzO+JVaU8qlKjcyT0C3ahU="
             }
         }
     }
