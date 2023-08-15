@@ -86,5 +86,6 @@ stdenv.mkDerivation {
     license = licenses.unfree;
     maintainers = [ maintainers.liff ];
     platforms = builtins.attrNames systems;
+    mainProgram = "waveforms";
   };
 }

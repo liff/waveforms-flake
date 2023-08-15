@@ -21,7 +21,7 @@
 
         eachSystem = f: listToAttrs (map (system: { name = system; value = f system; }) systems);
 
-        packages = eachSystem (system: 
+        packages = eachSystem (system:
           let all = listToAttrs (map (toFlakePackage system) names);
           in all // { default = all.waveforms; }
         );
