@@ -3,19 +3,19 @@
         "version": "2.27.9",
         "systems": {
             "x86_64-linux": {
-                "url": "https://files.digilent.com/Software/Adept2+Runtime/2.27.9/digilent.adept.runtime_2.27.9-amd64.deb",
+                "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.27.9/digilent.adept.runtime_2.27.9-amd64.deb",
                 "hash": "sha256-T8e+YnYUJMWswpgPb1C1GXagCZe9tURj9y3tvWs2Kus="
             },
             "i686-linux": {
-                "url": "https://files.digilent.com/Software/Adept2+Runtime/2.27.9/digilent.adept.runtime_2.27.9-i386.deb",
+                "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.27.9/digilent.adept.runtime_2.27.9-i386.deb",
                 "hash": "sha256-qJTV/sXHOuxe8dTxFXF3QoAo+ro2iPlX7kods9F1c10="
             },
             "aarch64-linux": {
-                "url": "https://files.digilent.com/Software/Adept2+Runtime/2.27.9/digilent.adept.runtime_2.27.9-arm64.deb",
+                "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.27.9/digilent.adept.runtime_2.27.9-arm64.deb",
                 "hash": "sha256-5jb1s2ujaNKUe29Nl/9BWDeIMiU7XUBRhvaQo6AXoQs="
             },
             "armv7l-linux": {
-                "url": "https://files.digilent.com/Software/Adept2+Runtime/2.27.9/digilent.adept.runtime_2.27.9-armhf.deb",
+                "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.27.9/digilent.adept.runtime_2.27.9-armhf.deb",
                 "hash": "sha256-5W5hbrrO5VaadeyDCikUyxYOWz5JW3tfUADgck6uAR4="
             }
         }

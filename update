@@ -32,7 +32,7 @@ SYSTEMS = DEBIAN_ARCHS.keys()
 
 
 def adept2_deb_download_url(system: str, version: str):
-    return f"https://files.digilent.com/Software/Adept2+Runtime/{version}/digilent.adept.runtime_{version}-{DEBIAN_ARCHS[system]}.deb"
+    return f"https://files.digilent.com/Software/Adept2%20Runtime/{version}/digilent.adept.runtime_{version}-{DEBIAN_ARCHS[system]}.deb"
 
 
 def waveforms_deb_download_url(system: str, version: str):
