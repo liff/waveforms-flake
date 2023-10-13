@@ -30,7 +30,7 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [ dpkg autoPatchelfHook qt5.wrapQtAppsHook shared-mime-info ];
 
-  buildInputs = [ adept2-runtime qt5.qtbase qt5.qtscript qt5.qtmultimedia ];
+  buildInputs = [ adept2-runtime qt5.qtbase qt5.qtscript qt5.qtmultimedia qt5.qtserialport ];
 
   runtimeDependencies = [ adept2-runtime ];
 
