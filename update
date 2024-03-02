@@ -40,10 +40,10 @@ def waveforms_deb_download_url(system: str, version: str):
 
 
 def scrape_adept2_runtime(html):
-    runtime = html.find(string=re.compile("\s*Runtime - Latest Downloads\s*"))
+    runtime = html.find(string=re.compile("\s*Linux Runtime - Latest Downloads\s*"))
     version = (
         runtime.find_parent(class_="section")
-        .find(string=re.compile("\s*Latest version\s*"))
+        .find(string=re.compile("\s*Latest Version\s*"))
         .find_parent(class_="key-value")
         .find(class_="value")
         .text.strip()
