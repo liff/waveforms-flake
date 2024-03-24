@@ -4,19 +4,19 @@
         "systems": {
             "x86_64-linux": {
                 "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.27.9/digilent.adept.runtime_2.27.9-amd64.deb",
-                "hash": "sha256-T8e+YnYUJMWswpgPb1C1GXagCZe9tURj9y3tvWs2Kus="
+                "hash": "sha256-yKLM8tnqH/oPOkrk7S/2kKBof/gzgrYtrjD6ExmLv1M="
             },
             "i686-linux": {
                 "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.27.9/digilent.adept.runtime_2.27.9-i386.deb",
-                "hash": "sha256-qJTV/sXHOuxe8dTxFXF3QoAo+ro2iPlX7kods9F1c10="
+                "hash": "sha256-mEydJgHJve+zLjqjDxsYfcvZzVHmeSVRVsfn+9iA5FQ="
             },
             "aarch64-linux": {
                 "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.27.9/digilent.adept.runtime_2.27.9-arm64.deb",
-                "hash": "sha256-5jb1s2ujaNKUe29Nl/9BWDeIMiU7XUBRhvaQo6AXoQs="
+                "hash": "sha256-JkeYRYyOH5NSHndWUWO4Ig7weWnbmhnEa9QPHYnPKek="
             },
             "armv7l-linux": {
                 "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.27.9/digilent.adept.runtime_2.27.9-armhf.deb",
-                "hash": "sha256-5W5hbrrO5VaadeyDCikUyxYOWz5JW3tfUADgck6uAR4="
+                "hash": "sha256-zKuK5nMcWmbH/CPTA1pvL6N0wzaOIm4/BI90sPEAby8="
             }
         }
     },
