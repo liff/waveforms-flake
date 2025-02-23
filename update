@@ -40,10 +40,10 @@ def waveforms_deb_download_url(system: str, version: str):
 
 
 def scrape_adept2_runtime(html):
-    runtime = html.find(string=re.compile("\s*Linux Runtime - Latest Downloads\s*"))
+    runtime = html.find(string=re.compile(r"\s*Linux Runtime - Latest Downloads\s*"))
     version = (
         runtime.find_parent(class_="section")
-        .find(string=re.compile("\s*Latest Version\s*"))
+        .find(string=re.compile(r"\s*Latest Version\s*"))
         .find_parent(class_="key-value")
         .find(class_="value")
         .text.strip()
@@ -63,13 +63,13 @@ def scrape_waveforms(html):
 CONTROL = [
     Item(
         name="adept2-runtime",
-        url="https://reference.digilentinc.com/reference/software/adept/start",
+        url="https://reference.digilentinc.com/reference/software/adept/start?redirect=1",
         scrape=scrape_adept2_runtime,
         download_url=adept2_deb_download_url,
     ),
     Item(
         name="waveforms",
-        url="https://reference.digilentinc.com/reference/software/waveforms/waveforms-3/start",
+        url="https://reference.digilentinc.com/reference/software/waveforms/waveforms-3/start?redirect=1",
         scrape=scrape_waveforms,
         download_url=waveforms_deb_download_url,
     ),
