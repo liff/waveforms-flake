@@ -1,0 +1,14 @@
+name: Testing something
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test adept
+        run: curl -Lv https://reference.digilentinc.com/reference/software/adept/start
+      - name: Test waveforms
+        run: curl -v https://reference.digilentinc.com/reference/software/waveforms/waveforms-3/start
