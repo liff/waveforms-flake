@@ -78,6 +78,7 @@ CONTROL = [
 
 def fetch_html(url):
     response = requests.get(url)
+    print(response.content)
     response.raise_for_status()
     return BeautifulSoup(response.text, "html.parser")
 
