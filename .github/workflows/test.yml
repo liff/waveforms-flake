@@ -1,6 +1,7 @@
 name: Testing something
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
