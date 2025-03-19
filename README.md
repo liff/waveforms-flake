@@ -4,9 +4,6 @@ A Nix [flake](https://nixos.wiki/wiki/Flakes) for
 [Digilent Waveforms](https://store.digilentinc.com/digilent-waveforms/)
 on Linux.
 
-The package version is automatically updated daily. Stable releases
-of Waveforms seem to be rather infrequent, though.
-
 # Usage
 
 In addition to the `waveforms` package and app, this Flake provides a
