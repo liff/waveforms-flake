@@ -21,7 +21,7 @@ jobs:
     name: "Build library ${{ matrix.pkg }} for ${{ matrix.nixpkgs_branch }} on ${{ matrix.system }}"
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: cachix/install-nix-action@v31
         with:
           extra_nix_config: |
@@ -56,7 +56,7 @@ jobs:
     name: "Build application ${{ matrix.pkg }} for ${{ matrix.nixpkgs_branch }} on ${{ matrix.system }}"
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: cachix/install-nix-action@v31
         with:
           extra_nix_config: |
