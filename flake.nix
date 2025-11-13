@@ -50,6 +50,7 @@
           nixpkgs.overlays = [ self.overlay ];
           services.udev.packages = [ pkgs.adept2-runtime ];
           environment.systemPackages = [ pkgs.waveforms ];
+          users.groups.plugdev = { };
         };
 
         devShells = eachSystem (system:
