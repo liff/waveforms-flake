@@ -25,7 +25,7 @@
         "systems": {
             "x86_64-linux": {
                 "url": "https://files.digilent.com/Software/Waveforms/3.24.4/digilent.waveforms_3.24.4_amd64.deb",
-                "hash": "sha256-iCSVR6mBGcP8BQOxXzzqerX6hWje6EURQhjsgEciC24="
+                "hash": "sha256-ky0TAL3M3JYpzDqdTdjGZqZujzeW5B9Nu7H/PYPHoxQ="
             },
             "i686-linux": {
                 "url": "https://files.digilent.com/Software/Waveforms/3.24.4/digilent.waveforms_3.24.4_i386.deb",
