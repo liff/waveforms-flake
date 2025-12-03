@@ -29,15 +29,15 @@
             },
             "i686-linux": {
                 "url": "https://files.digilent.com/Software/Waveforms/3.24.4/digilent.waveforms_3.24.4_i386.deb",
-                "hash": "sha256-tepxwXLp3CXghLZqUrGrVhqrpfozRzanz2XhhoSquFQ="
+                "hash": "sha256-1z/SOCXjSWCN4lC0Aem4yNmn6j11bmw78w3ZXPXXw3M="
             },
             "aarch64-linux": {
                 "url": "https://files.digilent.com/Software/Waveforms/3.24.4/digilent.waveforms_3.24.4_arm64.deb",
-                "hash": "sha256-xJ9IZsMX4ZLod97GrY6wnKFDiCrk5hdRNIQz2gQD4jM="
+                "hash": "sha256-5upxDEybGL0h3P8nr5iWgRgpv00dUlRoII0pXd8mLOc="
             },
             "armv7l-linux": {
                 "url": "https://files.digilent.com/Software/Waveforms/3.24.4/digilent.waveforms_3.24.4_armhf.deb",
-                "hash": "sha256-MfUALTM1mdPLgc0nNP1nrBVHmh8HH8ql05qxX+DcYuA="
+                "hash": "sha256-eUa6WOI+0+yr2xPvTXwcHjr75o0jiBUdtkOatxCR6Dg="
             }
         }
     }
