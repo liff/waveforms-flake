@@ -1,10 +1,12 @@
-{ lib
-, stdenv
-, fetchurl
-, autoPatchelfHook
-, libusb1
-, avahi
-, dpkg
+{
+  lib,
+  stdenv,
+  fetchurl,
+  autoPatchelfHook,
+  libusb1,
+  avahi,
+  openssl,
+  dpkg,
 }:
 
 let
@@ -15,39 +17,49 @@ let
 
 in
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "adept2-runtime";
   inherit version;
 
   src = fetchurl {
     inherit (srcInfo) url hash;
+    curlOptsList = [
+      "--user-agent"
+      "Mozilla/5.0 (X11; Linux x86_64; rv:158.0) Gecko/20100101 Firefox/158.0"
+    ];
   };
 
-  nativeBuildInputs = [ dpkg autoPatchelfHook ];
+  nativeBuildInputs = [
+    dpkg
+    autoPatchelfHook
+  ];
 
-  buildInputs = [ stdenv.cc.cc.lib libusb1 avahi ];
+  buildInputs = [
+    stdenv.cc.cc.lib
+    libusb1
+    avahi
+    openssl
+  ];
 
   unpackCmd = "dpkg -x $curSrc out";
 
+  dontConfigure = true;
   dontBuild = true;
 
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out/{etc,share} $out/etc/udev/rules.d
+    mkdir --parents $out $out/etc/udev/rules.d
 
-    cp -a usr/lib*/digilent/adept $out/lib
-    cp -a usr/sbin $out/
-    cp -a usr/share/{doc,digilent} $out/share/
+    cp -a usr/lib/digilent/adept $out/lib
 
     cat > $out/etc/digilent-adept.conf <<EOF
-    DigilentPath=$out/share/digilent
-    DigilentDataPath=$out/share/digilent/adept/data
+    DigilentPath=$out/lib
     EOF
 
     cat > $out/etc/udev/rules.d/52-digilent-usb.rules <<EOF
     ACTION=="add", ATTR{idVendor}=="1443", GROUP="plugdev", TAG+="uaccess"
-    ACTION=="add", ATTR{idVendor}=="0403", ATTR{manufacturer}=="Digilent", GROUP="plugdev", TAG+="uaccess", RUN+="$out/sbin/dftdrvdtch %s{busnum} %s{devnum}"
+    ACTION=="add", ATTR{idVendor}=="0403", ATTR{manufacturer}=="Digilent", GROUP="plugdev", TAG+="uaccess", RUN+="$out/lib/udev/dftdrvdtch %s{busnum} %s{devnum}"
     EOF
 
     runHook postInstall
@@ -73,4 +85,4 @@ stdenv.mkDerivation rec {
     maintainers = [ maintainers.liff ];
     platforms = builtins.attrNames systems;
   };
-}
+})

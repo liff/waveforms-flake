@@ -1,43 +1,27 @@
 {
     "adept2-runtime": {
-        "version": "2.27.9",
+        "version": "2.30.1",
         "systems": {
             "x86_64-linux": {
-                "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.27.9/digilent.adept.runtime_2.27.9-amd64.deb",
-                "hash": "sha256-yKLM8tnqH/oPOkrk7S/2kKBof/gzgrYtrjD6ExmLv1M="
-            },
-            "i686-linux": {
-                "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.27.9/digilent.adept.runtime_2.27.9-i386.deb",
-                "hash": "sha256-mEydJgHJve+zLjqjDxsYfcvZzVHmeSVRVsfn+9iA5FQ="
+                "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.30.1/digilent.adept.runtime_2.30.1_amd64.deb",
+                "hash": "sha256-5eUdJkDC/zTvO0NvO983g4EgsVFg1z37q4LpB3O2s3I="
             },
             "aarch64-linux": {
-                "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.27.9/digilent.adept.runtime_2.27.9-arm64.deb",
-                "hash": "sha256-JkeYRYyOH5NSHndWUWO4Ig7weWnbmhnEa9QPHYnPKek="
-            },
-            "armv7l-linux": {
-                "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.27.9/digilent.adept.runtime_2.27.9-armhf.deb",
-                "hash": "sha256-zKuK5nMcWmbH/CPTA1pvL6N0wzaOIm4/BI90sPEAby8="
+                "url": "https://files.digilent.com/Software/Adept2%20Runtime/2.30.1/digilent.adept.runtime_2.30.1_arm64.deb",
+                "hash": "sha256-jNRg4/vK+4ttctztRO3Mm6aOpy/+a7pJ4N+q1xugc5I="
             }
         }
     },
     "waveforms": {
-        "version": "3.24.4",
+        "version": "3.25.1",
         "systems": {
             "x86_64-linux": {
-                "url": "https://files.digilent.com/Software/Waveforms/3.24.4/digilent.waveforms_3.24.4_amd64.deb",
-                "hash": "sha256-ky0TAL3M3JYpzDqdTdjGZqZujzeW5B9Nu7H/PYPHoxQ="
-            },
-            "i686-linux": {
-                "url": "https://files.digilent.com/Software/Waveforms/3.24.4/digilent.waveforms_3.24.4_i386.deb",
-                "hash": "sha256-1z/SOCXjSWCN4lC0Aem4yNmn6j11bmw78w3ZXPXXw3M="
+                "url": "https://files.digilent.com/Software/Waveforms/3.25.1/digilent.waveforms_3.25.1_amd64.deb",
+                "hash": "sha256-0peaq3JskgKkihxdKzFFMVExccC2L6Lyou3NKSAnJ9M="
             },
             "aarch64-linux": {
-                "url": "https://files.digilent.com/Software/Waveforms/3.24.4/digilent.waveforms_3.24.4_arm64.deb",
-                "hash": "sha256-5upxDEybGL0h3P8nr5iWgRgpv00dUlRoII0pXd8mLOc="
-            },
-            "armv7l-linux": {
-                "url": "https://files.digilent.com/Software/Waveforms/3.24.4/digilent.waveforms_3.24.4_armhf.deb",
-                "hash": "sha256-eUa6WOI+0+yr2xPvTXwcHjr75o0jiBUdtkOatxCR6Dg="
+                "url": "https://files.digilent.com/Software/Waveforms/3.25.1/digilent.waveforms_3.25.1_arm64.deb",
+                "hash": "sha256-FP/EUD9znoepV+82P5lPVE5Jt33sxOPvS7ysODLIA0U="
             }
         }
     }
